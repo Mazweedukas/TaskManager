@@ -1,7 +1,10 @@
-namespace TaskManagerApi.Models;
+using TaskManagerApi.Repositories.Interfaces;
+using TaskManagerApi.Models;
+using TaskManagerApi.Services.Interfaces;
 
+namespace TaskManagerApi.Services;
 
-public class ProjectService : IProjectRepository
+public class ProjectService : IProjectService
 {
     private readonly IProjectRepository _projectRepository;
 
@@ -10,8 +13,8 @@ public class ProjectService : IProjectRepository
         _projectRepository = projectRepository;
     }
 
-    public async Task<IEnumerable<Project>> GetAllProjectsAsync()
+    public async Task<IEnumerable<Project>> GetAllAsync()
     {
-        return await _projectRepository.GetAllProjectsAsync();
+        return await _projectRepository.GetAllAsync();
     }
 }
