@@ -1,11 +1,15 @@
 using System.Data;
 using TaskManagerApi.Repositories;
 using TaskManagerApi.Repositories.Interfaces;
+using TaskManagerApi.Services;
+using TaskManagerApi.Services.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
