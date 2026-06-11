@@ -1,7 +1,7 @@
 using TaskManagerApi.Repositories.Interfaces;
 using TaskManagerApi.Models;
 using TaskManagerApi.Services.Interfaces;
-using TaskManagerApi.DTOs;
+using TaskManagerApi.DTOs.Projects;
 
 namespace TaskManagerApi.Services;
 
@@ -27,5 +27,15 @@ public class ProjectService : IProjectService
     public async Task<Project?> GetByIdAsync(int id)
     {
         return await _projectRepository.GetByIdAsync(id);
+    }
+
+    public async Task<bool> UpdateAsync(int id, UpdateProjectDto project)
+    {
+        return await _projectRepository.UpdateAsync(id, project);
+    }
+
+    public async Task<bool> DeleteAsync(int id)
+    {
+        return await _projectRepository.DeleteAsync(id);
     }
 }

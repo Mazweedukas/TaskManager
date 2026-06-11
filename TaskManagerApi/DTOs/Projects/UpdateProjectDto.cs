@@ -1,6 +1,6 @@
-﻿namespace TaskManagerApi.DTOs
+﻿namespace TaskManagerApi.DTOs.Projects
 {
-    public class CreateProjectDto
+    public class UpdateProjectDto
     {
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
