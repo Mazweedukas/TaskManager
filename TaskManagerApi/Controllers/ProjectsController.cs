@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskManagerApi.DTOs.Projects;
-using TaskManagerApi.Services;
 using TaskManagerApi.Services.Interfaces;
 
 namespace TaskManagerApi.Controllers;
