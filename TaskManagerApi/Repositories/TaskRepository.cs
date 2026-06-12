@@ -73,7 +73,7 @@ namespace TaskManagerApi.Repositories
         public async Task<IEnumerable<Models.Task>> GetByProjectIdAsync(int projectId)
         {
             const string sql = """
-                SELECT * FROM general_shcema.tasks
+                SELECT * FROM general_schema.tasks
                 WHERE projectId = @ProjectId;
                 """;
 

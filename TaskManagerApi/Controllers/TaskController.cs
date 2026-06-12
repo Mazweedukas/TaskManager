@@ -34,7 +34,7 @@ public class TasksController : ControllerBase
         return Ok(task);
     }
 
-    [HttpGet("projects/{projectId}/tasks")]
+    [HttpGet("/projects/{projectId}/tasks")]
     public async Task<IActionResult> GetTasksByProjectId(int projectId)
     {
         var project = await _projectService.GetByIdAsync(projectId);
@@ -42,7 +42,7 @@ public class TasksController : ControllerBase
             return NotFound();
 
         var tasks = await _taskService.GetByProjectIdAsync(projectId);
-        return Ok(tasks);
+        return Ok(tasks); 
     }
 
     [HttpPost]
