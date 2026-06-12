@@ -1,10 +1,11 @@
 import { useState } from "react";
+import TaskList from "./components/taskList"
 
 function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      title: "Some Task",
+      title: "Learn React",
       isCompleted: false
     }
   ]);
@@ -20,9 +21,7 @@ function App() {
         onChange={(e) => setNewTaskTitle(e.target.value)}
       />
 
-      {tasks.map(task => (
-        <p key={task.id}>{task.title}</p>
-      ))}
+      <TaskList tasks={tasks} />
 
       <button onClick={() => setTasks ([
         "Change",
@@ -30,12 +29,12 @@ function App() {
         ])}>Change current</button>
 
       <button onClick={() => setTasks ([
-      ...tasks,
-            {
-              id: tasks.length + 1,
-              title: "newTask",
-              isCompleted: false
-            }
+        ...tasks,
+        {
+          id: tasks.length + 1,
+          title: "newTask",
+          isCompleted: false
+        }
       ])}>Add</button>
 
       <button onClick={() => setTasks ((tasks.slice(0, -1)))}>Remove One</button>
