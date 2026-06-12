@@ -31,4 +31,9 @@ public class TaskService : ITaskService
     {
         return await _taskRepository.DeleteAsync(id);
     }
+
+    public async Task<IEnumerable<Models.Task>> GetByProjectIdAsync(int projectId)
+    {
+        return await _taskRepository.GetByProjectIdAsync(projectId);
+    }
 }

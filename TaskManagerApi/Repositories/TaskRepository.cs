@@ -69,5 +69,15 @@ namespace TaskManagerApi.Repositories
 
             return affectedRows > 0;
         }
+
+        public async Task<IEnumerable<Models.Task>> GetByProjectIdAsync(int projectId)
+        {
+            const string sql = """
+                SELECT * FROM general_shcema.tasks
+                WHERE projectId = @ProjectId;
+                """;
+
+            return await _connection.QueryAsync<Models.Task>(sql, new { ProjectId = projectId });
+        }
     }
 }
